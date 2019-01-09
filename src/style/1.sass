@@ -1,0 +1,113 @@
+.animate-content
+  width: 400px
+.animate-box
+  padding: 20px
+
+/* 定义变量 */
+// class全局名称
+$name: search
+// 搜索框的宽度
+$input-width: 300px
+// 搜索框的高度
+$input-height: 50px
+// 按钮相对于搜索框的扩展
+$label-padding: 30px
+// 按钮的宽度
+$label-width: $input-height + $label-padding
+// 图标的宽度
+$icon-width: 24px
+// 图标的粗细
+$icon-thickness: 2px
+// 动画时间
+$time: .4s
+
+/* 输出 placeholder */
+@mixin placeholder($color)
+  &::-webkit-input-placeholder
+    color: $color
+  &:-moz-placeholder
+    color: $color
+  &::-moz-placeholder
+    color: $color
+  &:-ms-input-placeholder
+    color: $color
+  &::placeholder
+    color: $color
+
+/* 添加webkit兼容前缀 */
+@mixin compatibleWebkit($key, $value)
+  -webkit-#{ $key }: $value
+  #{ $key }: $value
+
+.#{ $name }
+  display: inline-block
+  position: relative
+  width: $input-width
+  // input输入框
+  &-text
+    position: relative
+    right: 0
+    padding: 0 ($label-width / 2 + 10) 0 10px
+    width: $input-width
+    height: $input-height
+    border: none
+    border-top-left-radius: $input-height / 2
+    border-bottom-left-radius: $input-height / 2
+    background-color: #3f324d
+    color: #fff
+    outline: none
+    $value: right $time, width $time, background-color $time
+    @include compatibleWebkit(transition, $value)
+    &:focus
+      box-shadow: 0 0 12px #ffeacc, 0 10px 12px #fff
+      background-color: #ffeacc
+      color: #000
+      @include placeholder(#999)
+    @include placeholder(#e3e3e3)
+  // label
+  &-label
+    position: absolute
+    right: - $label-width / 2
+    top: - $label-padding / 2
+    display: inline-block
+    width: $label-width
+    height: $label-width
+    border-radius: $label-width
+    background-color: #ff08c5
+    cursor: pointer
+    $value: right $time, background-color $time
+    @include compatibleWebkit(transition, $value)
+    @include compatibleWebkit(transform, rotate(225deg))
+    &:before, &:after
+      content: ''
+      position: absolute
+      box-sizing: border-box
+      display: block
+      border-radius: $icon-width
+      box-shadow: 0 0 0 $icon-thickness #000 inset
+    &:before
+      left: $label-width / 2 - 2
+      top: ($label-width - 24) / 2
+      width: $icon-thickness * 2
+      height: $icon-width
+      @include compatibleWebkit(transition, width $time)
+    &:after
+      top: $label-width / 2 - 2
+      left: ($label-width - 24) / 2
+      width: $icon-width
+      height: $icon-thickness * 2
+      @include compatibleWebkit(transition, left $time)
+  // 隐藏的checkbox
+  &-checkbox
+    display: none
+    // checkbox被点击时
+    &:checked + .#{ $name }-text
+      right: - $input-width / 2 + $label-width / 2 - 1
+      width: 0
+      & + .#{ $name }-label
+        right: ($input-width - $label-width) / 2
+        background-color: #ee9800
+        &:before
+          width: $icon-width
+        &:after
+          left: ($label-width - $icon-width * 2) / 2

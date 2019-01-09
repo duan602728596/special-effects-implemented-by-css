@@ -1,0 +1,56 @@
+.animate-content
+  width: 400px
+.animate-box
+  padding: 20px
+
+/* 定义变量 */
+// class全局名称
+$name: formItem
+$time: .3s
+
+/* 输出 placeholder */
+@mixin placeholder($color)
+  &::-webkit-input-placeholder
+    color: $color
+  &:-moz-placeholder
+    color: $color
+  &::-moz-placeholder
+    color: $color
+  &:-ms-input-placeholder
+    color: $color
+  &::placeholder
+    color: $color
+
+/* 添加webkit兼容前缀 */
+@mixin compatibleWebkit($key, $value)
+  -webkit-#{ $key }: $value
+  #{ $key }: $value
+
+.#{ $name }
+  position: relative
+  display: inline-block
+  &-text
+    padding: 20px 10px
+    width: 250px
+    height: 30px
+    border: 1px solid #ddd
+    outline: none
+    &:placeholder-shown
+      @include placeholder(transparent)
+  &-label
+    position: absolute
+    left: 5px
+    top: 10px
+    padding: 0 5px
+    color: #a4a4a4
+    pointer-events: none
+    $value: top $time, font-size $time, color $time
+    @include compatibleWebkit(transition, $value)
+  &-text, &-label
+    font-size: 14px
+.#{ $name }-text:focus, .#{ $name }-text:not(:placeholder-shown)
+  & + .#{ $name }-label
+    top: -9px
+    font-size: 12px
+    color: #0f86ff
+    background-color: #fff

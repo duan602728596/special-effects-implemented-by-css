@@ -1,0 +1,26 @@
+{
+  "name": "special-effects-implemented-by-css",
+  "scripts": {
+    "dev": "npm run cleanbuild && cross-env NODE_ENV=development gulp",
+    "cleanbuild": "rimraf ./build"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.18",
+    "cross-env": "^5.2.0",
+    "gulp": "^4.0.0",
+    "gulp-cache": "^1.1.0",
+    "gulp-changed": "^3.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-pug": "^4.0.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-terser": "^1.1.6",
+    "gulp-typescript": "^5.0.0",
+    "node-sass": "^4.11.0",
+    "pug": "^2.0.3",
+    "rimraf": "^2.6.2",
+    "terser": "^3.13.1",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.12.0",
+    "typescript": "^3.2.2"
+  }
+}
