@@ -2,6 +2,7 @@
   "name": "special-effects-implemented-by-css",
   "scripts": {
     "dev": "npm run cleanbuild && cross-env NODE_ENV=development gulp",
+    "build": "npm run cleanbuild && cross-env NODE_ENV=production gulp",
     "cleanbuild": "rimraf ./build"
   },
   "devDependencies": {
