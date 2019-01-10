@@ -1,3 +1,5 @@
+@import './mixin'
+
 .animate-content
   width: 400px
 .animate-box
@@ -20,24 +22,6 @@ $icon-width: 24px
 $icon-thickness: 2px
 // 动画时间
 $time: .4s
-
-/* 输出 placeholder */
-@mixin placeholder($color)
-  &::-webkit-input-placeholder
-    color: $color
-  &:-moz-placeholder
-    color: $color
-  &::-moz-placeholder
-    color: $color
-  &:-ms-input-placeholder
-    color: $color
-  &::placeholder
-    color: $color
-
-/* 添加webkit兼容前缀 */
-@mixin compatibleWebkit($key, $value)
-  -webkit-#{ $key }: $value
-  #{ $key }: $value
 
 .#{ $name }
   display: inline-block

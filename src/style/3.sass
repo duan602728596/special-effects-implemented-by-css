@@ -1,3 +1,5 @@
+@import './mixin'
+
 .animate-content
   width: 400px
 .animate-box
@@ -8,11 +10,6 @@
 /* 定义变量 */
 // class全局名称
 $name: loading
-
-/* 添加webkit兼容前缀 */
-@mixin compatibleWebkit($key, $value)
-  -webkit-#{ $key }: $value
-  #{ $key }: $value
 
 /* 动画0 */
 $loading-0-color: (#f00, #00f, #0f0)
@@ -204,31 +201,31 @@ $loading-0-top: 8px
     &-0
       @include compatibleWebkit(animation-name, #{ $name }-2-after-animate-0)
       &:after
-        transform: scale(.6)
+        @include compatibleWebkit(transform, scale(.6))
     &-1
       @include compatibleWebkit(animation-name, #{ $name }-2-after-animate-1)
       &:after
-        transform: scale(.55)
+        @include compatibleWebkit(transform, scale(.55))
     &-2
       @include compatibleWebkit(animation-name, #{ $name }-2-after-animate-2)
       &:after
-        transform: scale(.5)
+        @include compatibleWebkit(transform, scale(.5))
     &-3
       @include compatibleWebkit(animation-name, #{ $name }-2-after-animate-3)
       &:after
-        transform: scale(.45)
+        @include compatibleWebkit(transform, scale(.45))
     &-4
       @include compatibleWebkit(animation-name, #{ $name }-2-after-animate-4)
       &:after
-        transform: scale(.4)
+        @include compatibleWebkit(transform, scale(.4))
     &-5
       @include compatibleWebkit(animation-name, #{ $name }-2-after-animate-5)
       &:after
-        transform: scale(.35)
+        @include compatibleWebkit(transform, scale(.35))
     &-6
       @include compatibleWebkit(animation-name, #{ $name }-2-after-animate-6)
       &:after
-        transform: scale(.3)
+        @include compatibleWebkit(transform, scale(.3))
 // 动画
 @for $i from 1 through 7
   $t: 5

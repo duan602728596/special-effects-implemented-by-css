@@ -1,0 +1,17 @@
+/* 输出 placeholder */
+@mixin placeholder($color)
+  &::-webkit-input-placeholder
+    color: $color
+  &:-moz-placeholder
+    color: $color
+  &::-moz-placeholder
+    color: $color
+  &:-ms-input-placeholder
+    color: $color
+  &::placeholder
+    color: $color
+
+/* 添加webkit兼容前缀 */
+@mixin compatibleWebkit($key, $value)
+  -webkit-#{ $key }: $value
+  #{ $key }: $value
