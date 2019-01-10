@@ -16,7 +16,7 @@ $name: loading
 
 /* 动画0 */
 $loading-0-color: (#f00, #00f, #0f0)
-$loading-0-top: 7px
+$loading-0-top: 8px
 
 .#{ $name }-0
   &-box
@@ -194,58 +194,41 @@ $loading-0-top: 7px
     &:after
       content: ''
       position: absolute
+      top: 0
+      left: 0
       display: block
+      width: 15px
+      height: 15px
       background-color: #ff0d94
       border-radius: 20px
     &-0
       @include compatibleWebkit(animation-name, #{ $name }-2-after-animate-0)
       &:after
-        top: 0
-        left: 0
-        width: 15px
-        height: 15px
+        transform: scale(.6)
     &-1
       @include compatibleWebkit(animation-name, #{ $name }-2-after-animate-1)
       &:after
-        top: 1px
-        left: 1px
-        width: 13px
-        height: 13px
+        transform: scale(.55)
     &-2
       @include compatibleWebkit(animation-name, #{ $name }-2-after-animate-2)
       &:after
-        top: 2px
-        left: 2px
-        width: 11px
-        height: 11px
+        transform: scale(.5)
     &-3
       @include compatibleWebkit(animation-name, #{ $name }-2-after-animate-3)
       &:after
-        top: 3px
-        left: 3px
-        width: 9px
-        height: 9px
+        transform: scale(.45)
     &-4
       @include compatibleWebkit(animation-name, #{ $name }-2-after-animate-4)
       &:after
-        top: 4px
-        left: 4px
-        width: 7px
-        height: 7px
+        transform: scale(.4)
     &-5
       @include compatibleWebkit(animation-name, #{ $name }-2-after-animate-5)
       &:after
-        top: 5px
-        left: 5px
-        width: 5px
-        height: 5px
+        transform: scale(.35)
     &-6
       @include compatibleWebkit(animation-name, #{ $name }-2-after-animate-6)
       &:after
-        top: 6px
-        left: 6px
-        width: 3px
-        height: 3px
+        transform: scale(.3)
 // 动画
 @for $i from 1 through 7
   $t: 5
