@@ -233,11 +233,11 @@ $loading-0-top: 8px
 
   @-webkit-keyframes #{ $name }-2-after-animate-#{ $index }
     #{ 2 + $t * $index }%
-      @include compatibleWebkit(transform, rotate(45deg))
+      -webkit-transform: rotate(45deg)
     100%
-      @include compatibleWebkit(transform, rotate(#{ 360 + 45 }deg))
+      -webkit-transform: rotate(#{ 360 + 45 }deg)
   @keyframes #{ $name }-2-after-animate-#{ $index }
     #{ 2 + $t * $index }%
-      @include compatibleWebkit(transform, rotate(45deg))
+      transform: rotate(45deg)
     100%
-      @include compatibleWebkit(transform, rotate(#{ 360 + 45 }deg))
+      transform: rotate(#{ 360 + 45 }deg)
