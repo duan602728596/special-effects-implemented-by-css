@@ -2,7 +2,7 @@
 
 > [https://duan602728596.github.io/special-effects-implemented-by-css/](https://duan602728596.github.io/special-effects-implemented-by-css/)
 
-只用css实现的特效。
+使用css动画实现各种特效。
 
 * [搜索框伸缩](https://duan602728596.github.io/special-effects-implemented-by-css/template/search-box-expansion.html)
 * [表单占位符](https://duan602728596.github.io/special-effects-implemented-by-css/template/form-placeholder.html)
