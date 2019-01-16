@@ -1,0 +1,93 @@
+@import './mixin'
+
+.animate-content
+  width: 400px
+.animate-box
+  margin-left: 50px
+  padding: 20px
+
+/* 定义变量 */
+// class全局名称
+$name: newton-pendulum
+// 小球宽度
+$ball-width: 41px
+// 线的长度
+$line-length: 150px
+
+.#{ $name }
+  display: flex
+  width: $ball-width * 5
+  height: $line-length
+  border-top: 5px solid #000
+  &-item
+    position: relative
+    width: $ball-width
+    height: $line-length
+    @include compatibleWebkit(transform-origin, 50% 0%)
+    &:before, &:after
+      content: ''
+      display: block
+      position: absolute
+    &:before
+      top: 0
+      left: ($ball-width + 1) / 2
+      width: 1px
+      height: $line-length - $ball-width
+      background-color: #000
+    &:after
+      bottom: 0
+      left: 0
+      width: $ball-width
+      height: $ball-width
+      border-radius: $ball-width
+    &-0, &-4
+      @include compatibleWebkit(animation-duration, 1.1s)
+      @include compatibleWebkit(animation-iteration-count, infinite)
+      @include compatibleWebkit(animation-timing-function, linear)
+    &-0
+      @include compatibleWebkit(animation-name, #{ $name }-animate-left)
+      &:after
+        background-color: #f00
+    &-1:after
+      background-color: #00f
+    &-2:after
+      background-color: #0f0
+    &-3:after
+      background-color: #f0f
+    &-4
+      @include compatibleWebkit(animation-name, #{ $name }-animate-right)
+      &:after
+        background-color: #0ff
+// 动画
+@-webkit-keyframes #{ $name }-animate-left
+  0%
+    -webkit-transform: rotate(30deg)
+  25%
+    -webkit-transform: rotate(0)
+  75%
+    -webkit-transform: rotate(0)
+  100%
+    -webkit-transform: rotate(30deg)
+@keyframes #{ $name }-animate-left
+  0%
+    transform: rotate(30deg)
+  25%
+    transform: rotate(0)
+  75%
+    transform: rotate(0)
+  100%
+    transform: rotate(30deg)
+@-webkit-keyframes #{ $name }-animate-right
+  25%
+    -webkit-transform: rotate(0)
+  50%
+    -webkit-transform: rotate(-30deg)
+  75%
+    -webkit-transform: rotate(0)
+@keyframes #{ $name }-animate-right
+  25%
+    transform: rotate(0)
+  50%
+    transform: rotate(-30deg)
+  75%
+    transform: rotate(0)

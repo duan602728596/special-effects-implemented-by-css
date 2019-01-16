@@ -45,7 +45,7 @@ function devPugProject(): Stream{
 // sass
 function devSassProject(): Stream{
   return gulp.src(pathFile.sass)
-    .pipe(changed(pathFile.css))
+    // .pipe(changed(pathFile.css))
     .pipe(plumber())
     .pipe(cache(
       sass().on('error', sass.logError))
