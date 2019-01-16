@@ -124,7 +124,7 @@ $loading-0-top: 8px
         background-color: #0f86ff
         @include compatibleWebkit(animation-name, #{ $name }-1-after-animate-0)
     &-1
-      @include compatibleWebkit(transform, rotate(180deg))
+      @include compatibleWebkit(transform, rotate(-180deg))
       @include compatibleWebkit(animation-name, #{ $name }-1-box-animate-1)
       &:after
         margin-left: 15px
@@ -133,42 +133,56 @@ $loading-0-top: 8px
         background-color: #ff920f
         @include compatibleWebkit(animation-name, #{ $name }-1-after-animate-1)
 .#{ $name }-1-item, .#{ $name }-1-item:after
-  @include compatibleWebkit(animation-duration, 1.8s)
+  @include compatibleWebkit(animation-duration, 1.2s)
   @include compatibleWebkit(animation-iteration-count, infinite)
+  @include compatibleWebkit(animation-timing-function, linear)
 // 动画
-@mixin loading-1-box-0
-  100%
-    @include compatibleWebkit(transform, rotate(180deg))
 @-webkit-keyframes #{ $name }-1-box-animate-0
-  @include loading-1-box-0
+  50%
+    -webkit-transform: rotate(180deg)
+  100%
+    -webkit-transform: rotate(360deg)
 @keyframes #{ $name }-1-box-animate-0
-  @include loading-1-box-0
-
-@mixin loading-1-box-1
+  50%
+    transform: rotate(180deg)
   100%
-    @include compatibleWebkit(transform, rotate(360deg))
+    transform: rotate(360deg)
 @-webkit-keyframes #{ $name }-1-box-animate-1
-  @include loading-1-box-1
-@keyframes #{ $name }-1-box-animate-1
-  @include loading-1-box-1
-
-@mixin loading-1-after-0
+  50%
+    -webkit-transform: rotate(0)
   100%
-    margin-left: 15px
-    width: 18px
-    height: 18px
-    background-color: #ff920f
+    -webkit-transform: rotate(180deg)
+@keyframes #{ $name }-1-box-animate-1
+  50%
+    transform: rotate(0)
+  100%
+    transform: rotate(180deg)
+
+@mixin status-0
+  margin-left: 15px
+  width: 18px
+  height: 18px
+  background-color: #ff920f
+@mixin status-1
+  margin-left: 9px
+  width: 30px
+  height: 30px
+  background-color: #0f86ff
+@mixin loading-1-after-0
+  50%
+    @include status-0
+  100%
+    @include status-1
 @-webkit-keyframes #{ $name }-1-after-animate-0
   @include loading-1-after-0
 @keyframes #{ $name }-1-after-animate-0
   @include loading-1-after-0
 
 @mixin loading-1-after-1
+  50%
+    @include status-1
   100%
-    margin-left: 9px
-    width: 30px
-    height: 30px
-    background-color: #0f86ff
+    @include status-0
 @-webkit-keyframes #{ $name }-1-after-animate-1
   @include loading-1-after-1
 @keyframes #{ $name }-1-after-animate-1
