@@ -1,4 +1,5 @@
 import * as process from 'process';
+import { Stream } from 'stream';
 import * as gulp from 'gulp';
 import * as changed from 'gulp-changed';
 import * as plumber from 'gulp-plumber';
@@ -8,7 +9,6 @@ import * as pug from 'gulp-pug';
 import * as sass from 'gulp-sass';
 import * as typescript from 'gulp-typescript';
 import { ICompileStream } from 'gulp-typescript/release/project';
-import { Stream } from 'stream';
 import * as tsconfig from './tsconfig.json';
 
 const isDev: boolean = process.env.NODE_ENV === 'development';
